@@ -261,3 +261,185 @@
       description: "HPE=1"
     - name: "Disable x86 syscall hardening"
       description: "syscall_hardening=off"
+
+- name: "Bass OS Options"
+  subgroups:
+  - name: "Package Options"
+    options:
+      - name: "Enable Smart Dock by default"
+        description: "SET_SMARTDOCK_DEFAULT=1"
+      - name: "Enable Vapor Launcher as default"
+        description: "SET_VAPOR_DEFAULT=1"
+      - name: "Hide apps on boot (package names separated by comma)"
+        description: "HIDE_APPS="
+        editable: true
+        default: " "
+      - name: "Restore apps on boot (package names separated by comma)"
+        description: "RESTORE_APPS="
+        editable: true
+        default: " "
+
+  - name: "Display Orientation/Rotation"
+    options:
+      - name: "Set HDMI rotation (portrait, landscape)"
+        description: "SET_HDMI_ROTATION="
+        editable: true
+        default: "landscape "
+      - name: "Set per window input rotation on/off"
+        description: "SET_PER_WINDOW_INPUT_ROTATION=1"
+      - name: "Set SurfaceFlinger rotation (0, 90, 180, 270)"
+        description: "SET_SF_ROTATION="
+        editable: true
+        default: "0 "
+      - name: "Set touchscreen rotation (0, 90, 180, 270)"
+        description: "SET_TOUCHSCREEN_ROTATION="
+        editable: true
+        default: "0 "
+      - name: "Set internal display rotation (0, 90, 180, 270)"
+        description: "SET_ROTATION_ON_INTERNAL_DISPLAY="
+        editable: true
+        default: "0 "
+      - name: "Set override forced orientation (true/false)"
+        description: "SET_OVERRIDE_FORCED_ORIENT=1"
+      - name: "Forces system app orientation (force_land, middle_port, original)"
+        description: "SET_SYSTEM_APP_ORIENT="
+        editable: true
+        default: "original "
+      - name: "Set surfaceflinger primary display orientation (ORIENTATION_0/90/180/270)"
+        description: "SET_PRIMARY_DISPLAY_ORIENTATION="
+        editable: true
+        default: "ORIENTATION_0 "
+
+  - name: "Memory Management & Hardware Timeout"
+    options:
+      - name: "Force Low Memory mode (true,false)"
+        description: "FORCE_LOW_MEM="
+        editable: true
+        default: "false "
+      - name: "Force LMK minfree levels (true,false)"
+        description: "FORCE_MINFREE_LEVELS="
+        editable: true
+        default: "true "
+      - name: "Set hardware timeout multiplier (int)"
+        description: "FORCE_HW_TIMEOUT_MULTIPLIER="
+        editable: true
+        default: "3 "
+
+  - name: "Debugging Options"
+    options:
+      - name: "Set default ADB Debugging mode (0,1,2,3)"
+        description: "FORCE_USE_ADB_CLIENT_MODE="
+        editable: true
+        default: "2 "
+      - name: "Use ADB Mass Storage mode (1,2)"
+        description: "FORCE_USE_ADB_MASS_STORAGE="
+        editable: true
+        default: "1 "
+      - name: "Set LOGD filesize to maximum allowed (0,1)"
+        description: "SET_MAX_LOGD="
+        editable: true
+        default: "1 "
+      - name: "Set logcat debug"
+        description: "SET_LOGCAT_DEBUG=1"
+  
+  - name: "Power/Sleep Options"
+    options:
+      - name: "Set screen off timeout (int in milliseconds)"
+        description: "SET_SCREEN_OFF_TIMEOUT="
+        editable: true
+        default: "0 "
+      - name: "Set sleep timeout (int in milliseconds)"
+        description: "SET_SLEEP_TIMEOUT="
+        editable: true
+        default: "0 "
+      - name: "Set power to be always on (true,false)"
+        description: "POWER_ALWAYS_ON="
+        editable: true
+        default: "false "
+      - name: "Set power to be on while plugged in (true,false)"
+        description: "SET_STAY_ON_WHILE_PLUGGED_IN="
+        editable: true
+        default: "false "
+      - name: "Set suspend type (freeze,standby,mem,disk)"
+        description: "SUSPEND_TYPE="
+        editable: true
+        default: "mem "
+      - name: "Set Power-off double-click"
+        description: "PWR_OFF_DBLCLK=1"
+
+  - name: "Radios & Bluetooth Options"
+    options:
+      - name: "Force Bluetooth Service (enable,disable)"
+        description: "FORCE_BLUETOOTH_SERVICE="
+        editable: true
+        default: "enable "
+      - name: "Force disable all radios."
+        description: "FORCE_DISABLE_ALL_RADIOS=1"
+
+  - name: "Desktop Mode Options"
+    options:
+      - name: "Enable desktop mode on external displays (0,1)"
+        description: "FORCE_DESKTOP_ON_EXTERNAL="
+        editable: true
+        default: "0 "
+      - name: "Enable Desktop Windowing mode."
+        description: "BASSEDW=1"
+      - name: "Desktop Modes"
+        subgroups:
+          - name: "Desktop Mode 1"
+            description: "BASSDM=1"
+          - name: "Desktop Mode 2"
+            description: "BASSDM2=1"
+
+  - name: "Navigation & Statusbar Options"
+    options:
+      - name: "Force disable navigation bar (true,false)"
+        description: "FORCE_DISABLE_NAVIGATION="
+        editable: true
+        default: "false "
+      - name: "Force disable navigation gesture handle bar (true,false)"
+        description: "FORCE_DISABLE_NAV_HANDLE="
+        editable: true
+        default: "false "
+      - name: "Force disable taskbar navigation bar (true,false)"
+        description: "FORCE_DISABLE_NAV_TASKBAR="
+        editable: true
+        default: "false "
+      - name: "Force disable status bar (true,false)"
+        description: "FORCE_DISABLE_STATUSBAR="
+        editable: true
+        default: "false "
+      - name: "Force disable recents (true,false)"
+        description: "FORCE_DISABLE_RECENTS="
+        editable: true
+        default: "false "
+      - name: "Force hide navigation bar window (0,1)"
+        description: "FORCE_HIDE_NAVBAR_WINDOW="
+        editable: true
+        default: "0 "
+      - name: "Force navigation bar on secondary displays (0,1)"
+        description: "FORCE_NAVBAR_ON_SECONDARY_DISPLAYS="
+        editable: true
+        default: "0 "
+      - name: "Force input (IME) on secondary displays (0,1)"
+        description: "FORCE_IME_ON_SECONDARY_DISPLAYS="
+        editable: true
+        default: "0 "
+
+  - name: "TimeZone Options"
+    options:
+      - name: "Set Timezone Location"
+        description: "SET_TZ_LOCATION="
+        editable: true
+        default: "UTC "
+
+  - name: "USB/CAM BUS Options"
+    options:
+      - name: "Set USB Bus port permissions for ports: 001/001,001/002,etc."
+        description: "SET_USB_BUS_PORTS="
+        editable: true
+        default: " "
+      - name: "Set TTY Bus port permissions for ports: ttyS0,ttyS1,ttyS2,etc."
+        description: "SET_TTY_PORT_PERMS="
+        editable: true
+        default: " "
