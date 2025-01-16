@@ -175,10 +175,10 @@ images:
 # branding component also ships a stylesheet.qss. Then they are
 # the corresponding CSS attributes of #sidebarApp.
 style:
-   SidebarBackground:        "#2E282D"
-   SidebarText:              "#F1DCF2"
-   SidebarTextCurrent:       "#18001A"
-   SidebarBackgroundCurrent: "#ECA3E5"
+   SidebarBackground:        "#2e2d2e"
+   SidebarText:              "#b5b5b0" 
+   SidebarTextCurrent:       "#ffffff"
+   SidebarBackgroundCurrent: "#249FC4"
 ### SLIDESHOW
 #
 # The slideshow is displayed during execution steps (e.g. when the
