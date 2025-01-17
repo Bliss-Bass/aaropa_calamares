@@ -98,6 +98,7 @@
       description: "androidboot.fake_battery=1"
 
 - name: "Audio"
+  distinct: true
   options:
     - name: "Set default audio HAL to x86"
       description: "AUDIO_PRIMARY=x86"
