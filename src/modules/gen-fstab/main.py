@@ -88,7 +88,7 @@ def run():
             print("$FS/boot bootloader", file=fstab_file)
 
         if not re.search("/data\\s", genfstab_output):
-            if "DATA=data.img" in kernel_args:
+            if "DATA=data.img" in kernel_args or os.path.exists(os.path.join(root_mount_point, "data.img")):
                 print("$FS/data.img userdata ext4 defaults defaults", file=fstab_file)
             else:
                 print("$FS/data userdata", file=fstab_file)
