@@ -121,12 +121,12 @@ navigation: widget
 # are visible as buttons there if the corresponding *show* keys
 # are set to "true" (they can also be overridden).
 strings:
-    productName:         BlissOS
-    shortProductName:    BlissOS
-    version:             2024-03-30
-    shortVersion:        2024-03-30
-    versionedName:       BlissOS
-    shortVersionedName:  BlissOS
+    productName:         BassOS
+    shortProductName:    BassOS
+    version:             2025-01-16
+    shortVersion:        2025-01-16
+    versionedName:       BassOS
+    shortVersionedName:  BassOS
     bootloaderEntryName: BlissOS
 
 # These images are loaded from the branding module directory.
