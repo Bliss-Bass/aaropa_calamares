@@ -16,34 +16,35 @@
           description: "DEBUG=1"
         - name: "Debug mode 2"
           description: "DEBUG=2"
-    - name: "vsock"
+    - name: "VSOCK"
       distinct: true
       options:
-        - name: "Enable vsock debug"
+        - name: "Enable VSOCK Debug"
           description: "DEBUG_VSOCK=1"
+    - name: "ADB"
+      distinct: true
+      options:
+        - name: "Enable Insecure ADB"
+          description: "ro.boot.insecure_adb=1"
 
 - name: "Media codecs"
   subgroups:
-    - name: "FFMPEG Codecs"
-      distinct: true
-      subgroups:
+    - name: "Codec2 Codecs"
+      options:
         - name: "Disable Codec2"
-          options:
-            - name: "Disable Codec2"
-              description: "CODEC2_LEVEL=0"
-        - name: "OMX"
-          options:
-            - name: "Disable YUV420 planar for OMX"
-              description: "OMX_NO_YUV420=1"
-        - name: "FFMPEG Codecs"
-          distinct: true
-          options:
-            - name: "FFMPEG Codec2 as default"
-              description: "FFMPEG_CODEC2_PREFER=1"
-            - name: "FFMPEG Codec2 with DRM Prime Handle FFMPEG_CODEC2_DRM=1"
-              description: "FFMPEG_CODEC2_PREFER=1"
-            - name: "Enable FFMPEG OMX"
-              description: "CODEC2_LEVEL=0 FFMPEG_OMX_CODEC=1"
+          description: "CODEC2_LEVEL=0"
+    - name: "OMX Codecs"
+      options:
+        - name: "Disable YUV420 planar for OMX"
+          description: "OMX_NO_YUV420=1"
+    - name: "FFMPEG Codecs"
+      options:
+        - name: "Set FFMPEG Codec2 as default"
+          description: "FFMPEG_CODEC2_PREFER=1"
+        - name: "Enable DRM Prime Handle on FFMPEG Codec2"
+          description: "FFMPEG_CODEC2_DRM=1"
+        - name: "Enable FFMPEG OMX"
+          description: "FFMPEG_OMX_CODEC=1"
     - name: "Miscellaneous for FFMPEG"
       description: "(Must enable FFMPEG codecs in either c2 or OMX)"
       options:
