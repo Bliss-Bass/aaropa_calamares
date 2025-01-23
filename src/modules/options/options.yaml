@@ -289,7 +289,7 @@
             description: "SET_HDMI_ROTATION=landscape"
           - name: "Force surfaceflinger primary display orientation to portrait"
             description: "SET_HDMI_ROTATION=portrait"
-      - name: "Set per window input rotation on/off"
+      - name: "Set per window input rotation"
         description: "SET_PER_WINDOW_INPUT_ROTATION=1"
       - name: "Set SurfaceFlinger rotation"
         distinct: true
@@ -463,6 +463,11 @@
         description: "FORCE_IME_ON_SECONDARY_DISPLAYS="
         editable: true
         default: "0 "
+
+  - name: "Mouse and Input Options"
+    options:
+      - name: "Set right mouse as back"
+        description: "SET_RMB=true"
 
   - name: "TimeZone Options"
     options:
