@@ -241,6 +241,10 @@
       selected: true
     - name: "Use rEFInd bootloader"
       description: "androidboot.bootctrl_bootcfg=/boot/efi/EFI/refind/refind.conf"
+    - name: "Manual configurations"
+      description: "androidboot.bootctrl_bootcfg="
+      editable: true
+      default: "/ab.env.cfg"
 
 - name: "Recovery"
   options:

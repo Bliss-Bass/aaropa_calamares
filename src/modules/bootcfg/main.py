@@ -71,9 +71,8 @@ def run():
 
     options = libcalamares.globalstorage.value("options")
     cmdline = open("/cdrom/cmdline.txt", "r").readline() + " " + options
-
-    bootloader = ["grub", "refind"]["refind.conf" in str(options)]
-    if bootloader == "grub":
+    if "grub/android.cfg" in str(options):
+        bootloader = "grub"
         grubDir = os.path.join(root_mount_point, "boot/grub")
         mkdir_p(grubDir)
 
@@ -86,7 +85,8 @@ def run():
             print("CMDLINE='" + cmdline + "'", file=envCfg)
 
         command = ["/usr/share/calamares/scripts/grubcfg"]
-    elif bootloader == "refind":
+    elif "refind.conf" in str(options):
+        bootloader = "refind"
         command = [
             "/usr/share/calamares/scripts/refind-conf",
             root_mount_point,
@@ -94,10 +94,12 @@ def run():
         ]
     else:
         libcalamares.utils.warning("Unsupported bootloader: {}".format(bootloader))
-        return (
-            _("Unsupported bootloader"),
-            _("Unsupported bootloader: {}".format(bootloader)),
-        )
+        bootloader = "none"
+        command = [
+            "/usr/share/calamares/scripts/refind-conf",
+            root_mount_point,
+            cmdline,
+        ]
 
     # Replace bootloader name inside `bootloader` module configuration
     libcalamares.utils.host_env_process_output(
