@@ -159,7 +159,7 @@ echo "}"
 
 TITLE=$old_title
 echo "submenu '$(echo "Bass boot options" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Bassboot' {"
-
+TITLE=""
 echo "submenu '$(echo "TabletUI" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Lockdownadmin' {"
 for arg in "${TABLET_ARGS[@]}"; do
 	entry "${arg%:*}" ${arg#*:}
@@ -191,7 +191,7 @@ done
 echo "}"
 
 echo "}"
-
+TITLE=$old_title
 echo "submenu '$(echo "Advanced options for $TITLE" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Advanced' {"
 for arg in "${ADVANCED_ARGS[@]}"; do
 	entry "${arg%:*}" ${arg#*:}
