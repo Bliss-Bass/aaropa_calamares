@@ -266,8 +266,8 @@
 
 - name: "Bass OS Options"
   subgroups:
-
   - name: "Bass Collections"
+    distinct: true
     subgroups:
       - name: "Tablet UI"
         distinct: true
@@ -363,7 +363,6 @@
             description: "RESTORE_APPS="
             editable: true
             default: " "
-
       - name: "Display Orientation/Rotation"
         subgroups:
           - name: "Set HDMI rotation"
@@ -430,7 +429,6 @@
                 description: "SET_PRIMARY_DISPLAY_ORIENTATION=ORIENTATION_180"
               - name: "Force surfaceflinger primary display orientation to 270"
                 description: "SET_PRIMARY_DISPLAY_ORIENTATION=ORIENTATION_270"
-
       - name: "Memory Management & Hardware Timeout"
         options:
           - name: "Force Low Memory mode (true,false)"
@@ -445,7 +443,6 @@
             description: "FORCE_HW_TIMEOUT_MULTIPLIER="
             editable: true
             default: "3 "
-
       - name: "Debugging Options"
         options:
           - name: "Set default ADB Debugging mode (0,1,2,3)"
@@ -462,8 +459,7 @@
             default: "1 "
           - name: "Set logcat debug"
             description: "SET_LOGCAT_DEBUG=1"
-      
-      - name: "Power/Sleep Options"
+            - name: "Power/Sleep Options"
         options:
           - name: "Set screen off timeout (int in milliseconds)"
             description: "SET_SCREEN_OFF_TIMEOUT="
@@ -487,7 +483,6 @@
             default: "mem "
           - name: "Set Power-off double-click"
             description: "PWR_OFF_DBLCLK=1"
-
       - name: "Radios & Bluetooth Options"
         options:
           - name: "Force Bluetooth Service (enable,disable)"
@@ -496,7 +491,6 @@
             default: "enable "
           - name: "Force disable all radios."
             description: "FORCE_DISABLE_ALL_RADIOS=1"
-
       - name: "Desktop Mode Options"
         subgroups:
           - name: "Enable desktop mode on external displays (0,1)"
@@ -512,7 +506,6 @@
                 description: "BASSDM=1"
               - name: "Desktop Mode 2"
                 description: "BASSDM2=1"
-
       - name: "Navigation & Statusbar Options"
         options:
           - name: "Force disable navigation bar (true,false)"
@@ -547,19 +540,16 @@
             description: "FORCE_IME_ON_SECONDARY_DISPLAYS="
             editable: true
             default: "0 "
-
       - name: "Mouse and Input Options"
         options:
           - name: "Set right mouse as back"
             description: "SET_RMB=true"
-
       - name: "TimeZone Options"
         options:
           - name: "Set Timezone Location"
             description: "SET_TZ_LOCATION="
             editable: true
             default: "UTC "
-
       - name: "USB/CAM BUS Options"
         options:
           - name: "Set USB Bus port permissions for ports: 001/001,001/002,etc."
