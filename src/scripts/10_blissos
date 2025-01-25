@@ -149,13 +149,6 @@ android_entry
 
 submenu_indentation=$grub_tab
 
-old_title=$TITLE
-echo "submenu '$(echo "Recovery modes for $TITLE" | grub_quote)' --class recovery ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Recovery' {"
-TITLE="$TITLE - Recovery Mode"
-for arg in "${RECOVERY_ARGS[@]}"; do
-	entry "${arg%:*}" androidboot.mode=recovery androidboot.force_normal_boot=0 ${arg#*:}
-done
-echo "}"
 
 TITLE=$old_title
 echo "submenu '$(echo "Bass boot options" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Bassboot' {"
@@ -195,6 +188,15 @@ echo "}"
 echo "}"
 
 echo "}"
+
+old_title=$TITLE
+echo "submenu '$(echo "Recovery modes for $TITLE" | grub_quote)' --class recovery ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Recovery' {"
+TITLE="$TITLE - Recovery Mode"
+for arg in "${RECOVERY_ARGS[@]}"; do
+	entry "${arg%:*}" androidboot.mode=recovery androidboot.force_normal_boot=0 ${arg#*:}
+done
+echo "}"
+
 TITLE=$old_title
 echo "submenu '$(echo "Advanced options for $TITLE" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Advanced' {"
 for arg in "${ADVANCED_ARGS[@]}"; do
