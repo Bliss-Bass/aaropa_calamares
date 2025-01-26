@@ -116,6 +116,8 @@ def run():
         print("GRUB_DISTRIBUTOR=BlissLabs", file=grubConf)
         print("GRUB_GFXPAYLOAD_LINUX=keep", file=grubConf)
         print("GRUB_DISABLE_OS_PROBER=false", file=grubConf)
+        print("GRUB_DEFAULT=saved", file=grubConf)
+        print("GRUB_SAVEDEFAULT=true", file=grubConf)
 
         partitions = libcalamares.globalstorage.value("partitions")
         boot_device = ""
