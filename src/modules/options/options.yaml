@@ -25,7 +25,7 @@
       distinct: true
       options:
         - name: "Enable Insecure ADB"
-          description: "ro.boot.insecure_adb=1"
+          description: "androidboot.insecure_adb=1"
 
 - name: "Media codecs"
   subgroups:
