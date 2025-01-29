@@ -119,7 +119,7 @@ android_entry() {
 		echo "	load_video"
 		grep -qx "CONFIG_FB_EFI=y" "${config}" 2>/dev/null &&
 			grep -qx "CONFIG_VT_HW_CONSOLE_BINDING=y" "${config}" 2>/dev/null &&
-			echo "	set gfxpayload=keep"
+			echo "	set gfxpayload=auto"
 
 	else
 		[ "$GRUB_GFXPAYLOAD_LINUX" = text ] ||
