@@ -113,11 +113,12 @@ def run():
     with open(os.path.abspath("/etc/default/grub"), "a") as grubConf:
         print("GRUB_TIMEOUT=10", file=grubConf)
         print("GRUB_TIMEOUT_STYLE=menu", file=grubConf)
-        print("GRUB_DISTRIBUTOR=BlissLabs", file=grubConf)
+        print("GRUB_DISTRIBUTOR=Bliss Co-Labs", file=grubConf)
         print("GRUB_GFXPAYLOAD_LINUX=auto", file=grubConf)
         print("GRUB_DISABLE_OS_PROBER=false", file=grubConf)
         print("GRUB_DEFAULT=saved", file=grubConf)
         print("GRUB_SAVEDEFAULT=true", file=grubConf)
+        print("GRUB_GFXMODE=1024x768", file=grubConf)
 
         partitions = libcalamares.globalstorage.value("partitions")
         boot_device = ""
