@@ -497,3 +497,19 @@
         description: "SET_TTY_PORT_PERMS="
         editable: true
         default: " "
+      - name: "Disable USB Access dialogs"
+        description: "DISMISS_USB_ACCESS_DIALOG="
+        editable: true
+        default: "true "
+  - name: "Customization Options"
+    options:
+      - name: "Override Bootanimation"
+        description: "ADDON_BOOTANIMATION=1"
+      - name: "Override .idc files"
+        description: "ADDON_IDC=1"
+      - name: "Override input port associations"
+        description: "BLISS_INPUT_PORTS_ADDON=1"
+      - name: "Addon vendor init"
+        description: "ADDON_BASSINIT=1"
+      
+
