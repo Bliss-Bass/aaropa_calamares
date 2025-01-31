@@ -425,14 +425,20 @@
         editable: true
         default: "0 "
       - name: "Enable Desktop Windowing mode."
-        description: "BASSEDW=1"
+        description: "BASSEDW="
+        editable: true
+        default: "true "
       - name: "Desktop Modes"
         distinct: true
         options:
           - name: "Desktop Mode 1"
-            description: "BASSDM=1"
+            description: "BASSDM="
+            editable: true
+            default: "true "
           - name: "Desktop Mode 2"
-            description: "BASSDM2=1"
+            description: "BASSDM2="
+            editable: true
+            default: "true "
 
   - name: "Navigation & Statusbar Options"
     options:
