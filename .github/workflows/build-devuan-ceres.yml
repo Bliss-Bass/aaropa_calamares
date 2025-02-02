@@ -21,43 +21,27 @@ jobs:
       - name: Check out
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      - name: Set up source files
+        run: ./ci/setup.sh
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Build DEB package
+        uses: DevChall-by-SDCY-and-VXM/debian-buildpackage-template@main
+        with:
+          distro: devuan/migrated:ceres-slim
+          package_maintainer: Shadichy <shadichy@blisslabs.org>
 
-      - name: Build Docker Image
-        run: |
-          docker buildx create --use --name devuan-dev --buildkitd-flags '--allow-insecure-entitlement security.insecure'
-          docker buildx build --builder devuan-dev -f ci/debian/ceres.dockerfile -t devuan --allow security.insecure --output type=tar,dest=install.tar .
-
-      - name: Extract .deb
-        run: |
-          # Export it to install
-          mkdir install
-          sudo tar -C install -psxf install.tar
-
-          # Move content out
-          mv install/*.{deb,buildinfo,changes} .
-          mv install/metadata.yml .
-
-          # Clean up
-          sudo rm -rf install install.tar
-
-      - name: Set Vars
-        id: vars
-        run: |
-          echo "arch=$(dpkg --print-architecture)" >> "$GITHUB_OUTPUT"
+      - name: Extract artifact
+        run: unzip -o built-deb-files-*.zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           path: |
             metadata.yml
-            blissos-calamares_*_*.buildinfo
-            blissos-calamares_*_*.changes
-            blissos-calamares*_*_*.deb
+            *_*_*.buildinfo
+            *_*_*.changes
+            *_*_*.deb
+            *_*_*.udeb
 
   release:
     name: Release
