@@ -253,6 +253,11 @@
       editable: true
       default: "5555 "
 
+- name: "Camera"
+  options:
+    - name: "Enable emulated camera"
+      description: "EMULATED_CAMERA=1"
+
 - name: "Miscellaneous"
   options:
     - name: "Set default DPI"
