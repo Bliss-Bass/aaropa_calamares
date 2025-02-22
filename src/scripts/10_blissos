@@ -129,7 +129,7 @@ android_entry() {
 
 	echo "	insmod gzio"
 	echo "$disk" | sed "s/^/$grub_tab/gm"
-	echo "	linux $SRC/kernel\$SLOT \$CMDLINE $extra_args ROOT=$ROOT_DEVICE root=/dev/ram0 SRC=$SRC androidboot.slot_suffix=\$SLOT"
+	echo "	linux $SRC/kernel\$SLOT \$CMDLINE androidboot.mode=\$MODE $extra_args ROOT=$ROOT_DEVICE root=/dev/ram0 SRC=$SRC androidboot.slot_suffix=\$SLOT"
 	echo "	initrd $SRC/initrd\$SLOT.img"
 	echo "}
 "
@@ -142,6 +142,7 @@ cat <<'EOF'
 source $prefix/android.cfg
 export SLOT
 export CMDLINE
+export MODE
 EOF
 
 submenu_indentation=""

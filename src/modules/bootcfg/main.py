@@ -78,23 +78,16 @@ def run():
         with open(os.path.join(grubDir, "android.cfg"), "w") as envCfg:
             print("SLOT=_a", file=envCfg)
             print("CMDLINE='" + cmdline + "'", file=envCfg)
+            print("MODE=normal", file=envCfg)
 
         command = ["/usr/share/calamares/scripts/grubcfg"]
     elif "refind.conf" in str(options):
         bootloader = "refind"
-        command = [
-            "/usr/share/calamares/scripts/refind-conf",
-            root_mount_point,
-            cmdline,
-        ]
+        command = ["echo", "Skipping to post conf"]
     else:
         libcalamares.utils.warning("Unsupported bootloader: {}".format(bootloader))
         bootloader = "none"
-        command = [
-            "/usr/share/calamares/scripts/refind-conf",
-            root_mount_point,
-            cmdline,
-        ]
+        command = ["echo", "Skipping to post conf"]
 
     # Replace bootloader name inside `bootloader` module configuration
     libcalamares.utils.host_env_process_output(
@@ -131,10 +124,6 @@ def run():
         print("GRUB_DEVICE_BOOT='" + boot_device + "'", file=grubConf)
 
         print("SRC=", file=grubConf)
-
-    # (Optional) Write CMDLINE to text file at $SRC for detection
-    with open(os.path.join(root_mount_point, "cmdline.txt"), "w") as cmdlineFile:
-        print(cmdline, file=cmdlineFile)
 
     libcalamares.utils.host_env_process_output(command, None)
     libcalamares.job.setprogress(1.0)

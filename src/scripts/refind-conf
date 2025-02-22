@@ -52,7 +52,7 @@ menuentry "$TITLE" {
   volume $ROOT_PARTUUID
   loader /kernel_a
   initrd /initrd_a
-  options "$CMDLINE ROOT=$ROOT_DEVICE SRC=$SRC androidboot.slot_suffix=_a root=/dev/ram0"
+  options "androidboot.mode=normal $CMDLINE ROOT=$ROOT_DEVICE SRC=$SRC androidboot.slot_suffix=_a root=/dev/ram0"
   submenuentry "Recovery mode" {
     add_options "$RECOVERY_PARAMETERS"
   }

@@ -12,5 +12,6 @@ done
 . /etc/default/grub
 
 cat <<EOF >"$androidboot_bootctrl__bootcfg"
-SLOT=_a
+androidboot.slot_suffix=_a
+androidboot.mode=normal
 EOF
