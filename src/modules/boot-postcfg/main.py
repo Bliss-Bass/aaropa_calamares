@@ -72,22 +72,15 @@ def run():
     elif "refind.conf" in str(options):
         bootloader = "refind"
         command = [
-            "/usr/share/calamares/scripts/refind-conf",
+            "/usr/share/calamares/scripts/refind-postconf",
             root_mount_point,
             cmdline,
         ]
     else:
         libcalamares.utils.warning("Unsupported bootloader: {}".format(bootloader))
         bootloader = "none"
-        command = [
-            "/usr/share/calamares/scripts/no-bootloader",
-            root_mount_point,
-            cmdline,
-        ]
+        command = ["echo", "Skipping"]
 
-    # (Optional) Write CMDLINE to text file at $SRC for detection
-    with open(os.path.join(root_mount_point, "cmdline.txt"), "w") as cmdlineFile:
-        print(cmdline, file=cmdlineFile)
 
     libcalamares.utils.host_env_process_output(command, None)
     libcalamares.job.setprogress(1.0)

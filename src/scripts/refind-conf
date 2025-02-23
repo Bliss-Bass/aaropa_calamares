@@ -41,11 +41,12 @@ ROOT_PARTUUID=$(${grub_probe} --device "$GRUB_DEVICE" --target=partuuid 2>/dev/n
 
 RECOVERY_PARAMETERS="androidboot.mode=recovery androidboot.force_normal_boot=0"
 
-conf=efi/EFI/refind/refind.conf
-CONFIG_FILE=$root/boot/$conf
+CUSTOM_CONFIG_FILE=$root/boot/efi/EFI/refind/android.conf
 CMDLINE=$*
 
-cat <<EOF >>"$CONFIG_FILE"
+mkdir -p "$(dirname $CUSTOM_CONFIG_FILE)"
+
+cat <<EOF >>"$CUSTOM_CONFIG_FILE"
 
 menuentry "$TITLE" {
   icon /EFI/refind/icons/blissos.png
@@ -59,7 +60,7 @@ menuentry "$TITLE" {
 EOF
 
 for arg in "${ADVANCED_ARGS[@]}"; do
-  cat <<EOF >>"$CONFIG_FILE"
+  cat <<EOF >>"$CUSTOM_CONFIG_FILE"
   submenuentry "Advanced mode: ${arg%:*}" {
     add_options "${arg#*:}"
   }
@@ -67,14 +68,14 @@ EOF
 done
 
 for arg in "${RECOVERY_ARGS[@]}"; do
-  cat <<EOF >>"$CONFIG_FILE"
+  cat <<EOF >>"$CUSTOM_CONFIG_FILE"
   submenuentry "Recovery mode: ${arg%:*}" {
     add_options "$RECOVERY_PARAMETERS ${arg#*:}"
   }
 EOF
 done
 
-cat <<EOF >>"$CONFIG_FILE"
+cat <<EOF >>"$CUSTOM_CONFIG_FILE"
 }
 
 EOF

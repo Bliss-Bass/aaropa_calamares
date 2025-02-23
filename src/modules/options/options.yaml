@@ -240,7 +240,7 @@
       description: "androidboot.bootctrl_bootcfg=/boot/grub/android.cfg"
       selected: true
     - name: "Use rEFInd bootloader"
-      description: "androidboot.bootctrl_bootcfg=/boot/efi/EFI/refind/refind.conf"
+      description: "androidboot.bootctrl_bootcfg=/boot/efi/EFI/refind/android.conf"
     - name: "Manual configurations"
       description: "androidboot.bootctrl_bootcfg="
       editable: true

@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+# shellcheck disable=SC2086,SC2001,SC2154,SC1091
+set -e
+
+root=$1
+shift
+
+CONFIG_FILE=$root/boot/efi/EFI/refind/refind.conf
+
+echo 'import android.conf' >$CONFIG_FILE
