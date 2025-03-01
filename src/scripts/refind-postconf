@@ -7,4 +7,4 @@ shift
 
 CONFIG_FILE=$root/boot/efi/EFI/refind/refind.conf
 
-echo 'import android.conf' >$CONFIG_FILE
+echo 'import android.conf' >>$CONFIG_FILE
