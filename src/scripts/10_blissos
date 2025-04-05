@@ -24,9 +24,9 @@ set -e
 export TEXTDOMAIN=grub
 export TEXTDOMAINDIR="${datarootdir}/locale"
 
-CLASS="--class blissos --class android --class os"
+CLASS="--class bassos --class android --class os"
 OS="Android"
-TITLE="BlissOS $(grep 'ro.bliss.version=' /system/build.prop | awk -F'=' '{print $2}')"
+TITLE="BassOS a14 $(grep 'ro.bliss.version=' /system/build.prop | awk -F'=' '{print $2}')"
 
 ADVANCED_ARGS=(
 	"Debug mode: DEBUG=2 androidboot.enable_console=1"
@@ -43,6 +43,52 @@ RECOVERY_ARGS=(
 	"BGRA_8888 color mode: androidboot.pixel_format=BGRA_8888"
 	"RGBA_8888 color mode: androidboot.pixel_format=RGBA_8888"
 	"BGRX_8888 color mode: androidboot.pixel_format=BGRX_8888"
+)
+
+DESKTOP_ARGS=(
+	"multi-display DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 PC_MODE=1 BASS_DESKTOPUI=1"
+	"multi-display navigation & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 PC_MODE=1 BASS_DESKTOPUI=1"
+	"multi-display mouse, navigation & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 PC_MODE=1 BASS_DESKTOPUI=1"
+	"multi-display IME & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 PC_MODE=1 BASS_DESKTOPUI=1"
+	"multi-display navigation, IME & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 PC_MODE=1 BASS_DESKTOPUI=1"
+	"multi-display mouse, navigation, IME & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 PC_MODE=1 BASS_DESKTOPUI=1"
+)
+
+HYBRID_DESKTOP_ARGS=(
+	"multi-display DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 BASS_DESKTOPUI=1"
+	"multi-display navigation & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 BASS_DESKTOPUI=1"
+	"multi-display mouse, navigation & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 BASS_DESKTOPUI=1"
+	"multi-display IME & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 BASS_DESKTOPUI=1"
+	"multi-display navigation, IME & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 BASS_DESKTOPUI=1"
+	"multi-display mouse, navigation, IME & DesktopUI: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 HYBRID_PC_MODE=1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 BASS_DESKTOPUI=1"
+)
+
+RESTRICTED_LOCKDOWN_ARGS=(
+	"Single display: splash=silent,fadein,fadeout logo FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=0 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=0 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=lockdown loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Primary Touch: splash=silent,fadein,fadeout logo FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=0 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=0 androidboot.force.disable_external_display_focus=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=lockdown loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch: splash=silent,fadein,fadeout logo FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=lockdown loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch (no navbar): splash=silent,fadein,fadeout logo FORCE_DISABLE_NAVIGATION=true FORCE_DISABLE_NAV_HANDLE=true FORCE_DISABLE_NAV_TASKBAR=true FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=lockdown loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual & mouse: splash=silent,fadein,fadeout logo FORCE_MOUSE_PRESENTATION=1 FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=lockdown loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch & mouse (no navbar): splash=silent,fadein,fadeout logo FORCE_MOUSE_PRESENTATION=1 FORCE_DISABLE_NAVIGATION=true FORCE_DISABLE_NAV_HANDLE=true FORCE_DISABLE_NAV_TASKBAR=true FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=lockdown loglevel=0 console=tty6 BASS_KIOSKUI=1"
+)
+
+RESTRICTED_ADMIN_ARGS=(
+	"single display: logo FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=0 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=0 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Primary Touch: logo FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=0 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=0 androidboot.force.disable_external_display_focus=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch: logo FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch (no navbar): logo FORCE_DISABLE_NAVIGATION=true FORCE_DISABLE_NAV_HANDLE=true FORCE_DISABLE_NAV_TASKBAR=true FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch & mouse: logo FORCE_MOUSE_PRESENTATION=1 FORCE_DISABLE_NAVIGATION=false FORCE_DISABLE_NAV_HANDLE=false FORCE_DISABLE_NAV_TASKBAR=false FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Multi display Dual Touch & mouse (no navbar): logo FORCE_MOUSE_PRESENTATION=1 FORCE_DISABLE_NAVIGATION=true FORCE_DISABLE_NAV_HANDLE=true FORCE_DISABLE_NAV_TASKBAR=true FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin loglevel=0 console=tty6 BASS_KIOSKUI=1"
+	"Debugging Admin: logo FFMPEG_OMX_CODEC=1 FFMPEG_CODEC2_PREFER=1 androidboot.bliss.bootmode=admin androidboot.enable_console=1 DEBUG=2"
+)
+
+TABLET_ARGS=(
+	"TabletUI Single display: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 BASS_TABLETUI=1"
+	"multi-display navigation: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 BASS_TABLETUI=1"
+	"multi-display mouse, navigation: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 BASS_TABLETUI=1"
+	"multi-display IME: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 BASS_TABLETUI=1"
+	"multi-display navigation, IME: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 BASS_TABLETUI=1"
+	"multi-display mouse, navigation, IME: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 BASS_TABLETUI=1"
 )
 
 disk="$(prepare_grub_to_access_device "$GRUB_DEVICE")"
@@ -73,7 +119,7 @@ android_entry() {
 		echo "	load_video"
 		grep -qx "CONFIG_FB_EFI=y" "${config}" 2>/dev/null &&
 			grep -qx "CONFIG_VT_HW_CONSOLE_BINDING=y" "${config}" 2>/dev/null &&
-			echo "	set gfxpayload=keep"
+			echo "	set gfxpayload=auto"
 
 	else
 		[ "$GRUB_GFXPAYLOAD_LINUX" = text ] ||
@@ -103,6 +149,46 @@ submenu_indentation=""
 android_entry
 
 submenu_indentation=$grub_tab
+
+
+TITLE=$old_title
+echo "submenu '$(echo "Bass boot options" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Bassboot' {"
+TITLE=""
+echo "submenu '$(echo "TabletUI" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Lockdownadmin' {"
+for arg in "${TABLET_ARGS[@]}"; do
+	entry "${arg%:*}" ${arg#*:}
+done
+echo "}"
+
+echo "submenu '$(echo "Hybrid-DesktopUI" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-HDesktop' {"
+for arg in "${HYBRID_DESKTOP_ARGS[@]}"; do
+	entry "${arg%:*}" ${arg#*:}
+done
+echo "}"
+
+echo "submenu '$(echo "DesktopUI" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Desktop' {"
+for arg in "${DESKTOP_ARGS[@]}"; do
+	entry "${arg%:*}" ${arg#*:}
+done
+echo "}"
+
+echo "submenu '$(echo "Kiosk" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Kiosk' {"
+
+echo "submenu '$(echo "Lockdown" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Lockdown' {"
+for arg in "${RESTRICTED_LOCKDOWN_ARGS[@]}"; do
+	entry "${arg%:*}" ${arg#*:}
+done
+echo "}"
+
+echo "submenu '$(echo "Admin" | grub_quote)' --class submenu ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Lockdownadmin' {"
+for arg in "${RESTRICTED_ADMIN_ARGS[@]}"; do
+	entry "${arg%:*}" ${arg#*:}
+done
+echo "}"
+
+echo "}"
+
+echo "}"
 
 old_title=$TITLE
 echo "submenu '$(echo "Recovery modes for $TITLE" | grub_quote)' --class recovery ${CLASS} \$menuentry_id_option '$OS-${TITLE// /_}-Recovery' {"
