@@ -17,6 +17,7 @@
 #include "utils/RAII.h"
 #include "utils/Yaml.h"
 
+#include <QMessageBox>
 #include <QNetworkReply>
 #include <QTimer>
 
@@ -98,6 +99,7 @@ LoaderQueue::fetchNext()
     if ( m_queue.isEmpty() )
     {
         emit done();
+        QMessageBox::information(nullptr, "Loader Queue Completed", "Do not check all items, it will break things. Only select what you know you need.");
         return;
     }
 
