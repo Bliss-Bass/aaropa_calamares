@@ -353,8 +353,6 @@
             description: "androidboot.force_rotation_on_external_displays=270"
       - name: "Set override forced orientation (true/false)"
         description: "SET_OVERRIDE_FORCED_ORIENT=1"
-      - name: "Set override per-display focus enabled (true/false)"
-        description: "androidboot.per_display_focus_enabled=true"
       - name: "Forces system app orientation"
         distinct: true
         options:
@@ -533,6 +531,8 @@
         description: "androidboot.only_rotate_secondary_touch="
         editable: true
         default: "false "
+      - name: "Set override per-display focus enabled (true/false)"
+        description: "androidboot.per_display_focus_enabled=true"
 
   - name: "TimeZone Options"
     options:

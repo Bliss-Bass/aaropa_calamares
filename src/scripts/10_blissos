@@ -77,7 +77,10 @@ RESTRICTED_ADMIN_ARGS=(
 )
 
 TABLET_ARGS=(
-	"TabletUI Single display: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 BASS_TABLETUI=1"
+	"TabletUI Single display: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DESKTOP_ON_EXTERNAL=0 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 BASS_TABLETUI=1"
+	"TabletUI Multi display (PDFE): splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=0 androidboot.per_display_focus_enabled=true BASS_TABLETUI=1"
+	"TabletUI Multi display: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 BASS_TABLETUI=1"
+	"TabletUI Multi display (PDFE): splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 androidboot.per_display_focus_enabled=true BASS_TABLETUI=1"
 	"multi-display navigation: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 BASS_TABLETUI=1"
 	"multi-display mouse, navigation: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_NAVBAR_ON_SECONDARY_DISPLAYS=1 FORCE_MOUSE_PRESENTATION=1 BASS_TABLETUI=1"
 	"multi-display IME: splash=silent,fadein,fadeout logo androidboot.force.win_as_home=1 androidboot.bliss.window.animation.scale=0.1 FORCE_DISABLE_NAV_HANDLE=1 loglevel=0 console=tty6 FORCE_DESKTOP_ON_EXTERNAL=1 FORCE_IME_ON_SECONDARY_DISPLAYS=1 BASS_TABLETUI=1"
