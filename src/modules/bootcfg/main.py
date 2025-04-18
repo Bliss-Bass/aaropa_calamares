@@ -116,7 +116,6 @@ def run():
         print("GRUB_DISABLE_OS_PROBER=false", file=grubConf)
         print("GRUB_DEFAULT=saved", file=grubConf)
         print("GRUB_SAVEDEFAULT=true", file=grubConf)
-        print("GRUB_GFXMODE=1024x768", file=grubConf)
 
         partitions = libcalamares.globalstorage.value("partitions")
         boot_device = ""
