@@ -280,6 +280,8 @@
       description: "HPE=1"
     - name: "Disable x86 syscall hardening"
       description: "syscall_hardening=off"
+    - name: "Disable Thermald"
+      description: "THERMALD_DISABLE=1"
 
 - name: "Package Options"
   options:
