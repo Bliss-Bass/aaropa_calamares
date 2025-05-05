@@ -514,23 +514,23 @@
     - name: "Force disable external display focus (0,1)"
       description: "androidboot.force.disable_external_display_focus="
       editable: true
-      default: "0 "
+      default: "1 "
     - name: "force ignore external display input (0,1)"
       description: "androidboot.force.ignore_external_input="
       editable: true
-      default: "0 "
+      default: "1 "
     - name: "Force ignore external display touchscreen input (0,1)"
       description: "androidboot.force.ignore_external_touch="
       editable: true
-      default: "0 "
+      default: "1 "
     - name: "Only rotate primary touchscreen (true,false)"
       description: "androidboot.only_rotate_primary_touch="
       editable: true
-      default: "false "
+      default: "true "
     - name: "Only rotate secondary touchscreen (external) (true,false)"
       description: "androidboot.only_rotate_secondary_touch="
       editable: true
-      default: "false "
+      default: "true "
     - name: "Set override per-display focus enabled (true/false)"
       description: "androidboot.per_display_focus_enabled=true"
 
