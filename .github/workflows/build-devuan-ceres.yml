@@ -34,7 +34,7 @@ jobs:
           docker_arch_specific: true
 
       - name: Extract artifact
-        run: unzip -o built-deb-files.zip
+        run: unzip -o *.zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
