@@ -430,6 +430,10 @@
       default: "mem "
     - name: "Set Power-off double-click"
       description: "PWR_OFF_DBLCLK=1"
+    - name: "Set power non-boot CPU off (0,1)"
+      description: "PWR_NON_BOOT_CPU="
+      editable: true
+      default: "1 "
 
 - name: "Radios & Bluetooth Options"
   options:
