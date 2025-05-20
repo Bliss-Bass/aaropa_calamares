@@ -434,6 +434,10 @@
       description: "PWR_NON_BOOT_CPU="
       editable: true
       default: "1 "
+    - name: "Ignore default display sleep"
+      description: "IGNORE_DEFAULT_DISPLAY_SLEEP=true"
+    - name: "ignore HDMI display sleep"
+      description: "IGNORE_HDMI_DISPLAY_SLEEP=true"
 
 - name: "Radios & Bluetooth Options"
   options:
